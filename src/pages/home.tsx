@@ -38,12 +38,14 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
-  const modal = document.getElementById("video-modal");
-  modal?.addEventListener("click", function (e) {
-    if (e.target == this) {
-      setOpenVideo(false);
-    }
-  });
+  if (typeof window !== "undefined") {
+    const modal = document.getElementById("video-modal");
+    modal?.addEventListener("click", function (e) {
+      if (e.target == this) {
+        setOpenVideo(false);
+      }
+    });
+  }
 
   return (
     <section className="flex justify-center flex-col items-center bg-home-img h-full w-full text-center">
